@@ -1,34 +1,30 @@
-import React from 'react';
+
+import { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { advice } from './advice';
 
-interface Advice {
-  piece: string;
+interface T {
+  advice: string[];
 }
 
 function App() {
+  const [currentQuote, setCurrentQuote] = useState(advice[Math.floor(Math.random() * advice.length)]);
+
+  const randomQuote = (e: React.MouseEvent<HTMLButtonElement>) => { 
+    e.preventDefault();
+    setCurrentQuote(advice[Math.floor(Math.random() * advice.length)]);
+   }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <ul>
-          {advice.map((piece<Advice>) => {
-            <li>{piece}</li>
+        <h2>{currentQuote}</h2>
+        <button onClick={randomQuote}>More Advice</button>
+        {/* <ul>
+          {advice.map((quote: string) => {
+            return <li>{quote}</li>
           })}
-        </ul>
-      </header>
+        </ul> */}
     </div>
   );
 }
