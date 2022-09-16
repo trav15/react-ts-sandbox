@@ -1,6 +1,11 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { advice } from './advice';
+
+interface Advice {
+  piece: string;
+}
 
 function App() {
   return (
@@ -18,6 +23,11 @@ function App() {
         >
           Learn React
         </a>
+        <ul>
+          {advice.map((piece<Advice>) => {
+            <li>{piece}</li>
+          })}
+        </ul>
       </header>
     </div>
   );
