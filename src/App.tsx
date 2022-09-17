@@ -1,12 +1,11 @@
 
 import { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { advice } from './advice';
 
-interface T {
-  advice: string[];
-}
+// interface T {
+//   advice: string[];
+// }
 
 function App() {
   const [currentQuote, setCurrentQuote] = useState(advice[Math.floor(Math.random() * advice.length)]);
@@ -25,6 +24,13 @@ function App() {
             return <li>{quote}</li>
           })}
         </ul> */}
+        <br />
+        <p>Source: <a href="http://kk.org">Kevin Kelly</a></p>
+        <a href="https://kk.org/thetechnium/68-bits-of-unsolicited-advice/">68 Bits of Unsolicited Advice</a>
+        <br />
+        <a href="https://kk.org/thetechnium/99-additional-bits-of-unsolicited-advice/">99 Additional Bits of Unsolicited Advice</a>
+        <br />
+        <a href="https://kk.org/thetechnium/103-bits-of-advice-i-wish-i-had-known/">103 Bits of Advice I Wish I Had Known</a>
     </div>
   );
 }
